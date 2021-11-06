@@ -25,7 +25,7 @@ class CNN(nn.Module): # torch.nn의 Module을 상속받는다.
 
     def forward(self, x: Tensor) -> Tensor:  # 순방향 전달 구현
         x = x.permute(0, 2, 1)
-        x = self.stem(x)           # hidden lineal layer     
+        x = self.stem(x)           # hidden lineal layer  가자요  
         x = self.hidden_layers(x)
 
         return x.view(x.size(0), -1)
