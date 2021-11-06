@@ -31,3 +31,4 @@ class CNN(nn.Module): # torch.nn의 Module을 상속받는다.
         return x.view(x.size(0), -1)
 
         # forward() 는 모델이 학습데이터를 입력받아서 forward propagation을 진행시키는 함수이다
+        ## 좋아요
