@@ -23,7 +23,7 @@ class CNN(nn.Module): # torch.nn의 Module을 상속받는다.
         # for 무한루프 self.layers 까지
 
 
-    def forward(self, x: Tensor) -> Tensor:
+    def forward(self, x: Tensor) -> Tensor: # 안녕하세요
         x = x.permute(0, 2, 1)
         x = self.stem(x)
         x = self.hidden_layers(x)
