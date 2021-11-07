@@ -7,7 +7,7 @@ from convolution import Convolution # convolution 모듈에 Convolution 파일 �
 class CNN(nn.Module): # torch.nn의 Module을 상속받는다.
 
     def __init__(self, label_dict: dict, residual: bool = True): # 함수생성 self로 자기 자신을 받고, label_dict을 입력 받음, 나머지를 True로 받음
-        super(CNN, self).__init__() #super(모델명, self) nn.Module의 서브 모든 메소드를 상속된다는 사실을 지칭한다
+        super(CNN, self).__init__() # (사용할 함수 CNN을 정의하는 장소)
         self.label_dict = label_dict # label_dict을 입력 받은것을 self.label_dict에 할당한다.
         
 
@@ -23,11 +23,13 @@ class CNN(nn.Module): # torch.nn의 Module을 상속받는다.
         # for 무한루프 self.layers 까지
 
 
-    def forward(self, x: Tensor) -> Tensor: # 안녕하세요
-        x = x.permute(0, 2, 1)
-        x = self.stem(x)
-        x = self.hidden_layers(x)
+    def forward(self, x: Tensor) -> Tensor:
+        # (함수들을 사용하여 CNN의 forward를 정의하는 장소)
+        x = x.permute(0, 2, 1)         # 차원 0->0, 1->2, 2->1로 변경 
+        x = self.stem(x) # stem 값
+        x = self.hidden_layers(x) # hidden_layers 값
 
-        return x.view(x.size(0), -1)
+        return x.view(x.size(0), -1) # ouput 지정 # 2 x 2 행렬을 1차원 벡터로 변형
 
-        # forward() 는 모델이 학습데이터를 입력받아서 forward propagation을 진행시키는 함수이다
+# foward() 함수는 모델이 학습데이터를 입력받아서 forward 연산을 진행시키는 함수입니다.
+# 입력 x로부터 예측된 값을 얻는 forward 연산
