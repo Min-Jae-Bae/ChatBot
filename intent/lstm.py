@@ -5,7 +5,7 @@ from torch import nn, autograd # nn, autograd 가져오기
 from decorators import intent
 
 
-
+@intent
 class LSTM(nn.Module): # 클래스 생성하고 모듈 상속
 
     def __init__(self, label_dict: dict, bidirectional: bool = True):
